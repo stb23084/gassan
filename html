@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>自動切り替え360°背景 - A-Frame</title>
+<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; }
+</style>
+</head>
+<body>
+<a-scene>
+  <!-- 背景 -->
+  <a-sky id="sky" src="scene1.jpg"></a-sky>
+
+  <!-- 光源 -->
+  <a-entity light="type: ambient; intensity: 0.8"></a-entity>
+  <a-entity light="type: directional; intensity: 0.6" position="1 1 1"></a-entity>
+
+  <!-- カメラ -->
+  <a-entity camera look-controls></a-entity>
+</a-scene>
+
+<script>
+  // 360°画像を順番に切り替える
+  const images = ["scene1.jpg", "scene2.jpg", "scene3.jpg"];
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    document.querySelector("#sky").setAttribute("src", images[index]);
+  }, 5000); // 5秒ごとに切り替え
+</script>
+</body>
+</html>
