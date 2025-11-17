@@ -13,22 +13,21 @@
   <!-- 背景 -->
   <a-sky id="sky" src="IMG_20230807_115343_00_merged.jpg"></a-sky>
 
-  <!-- テキスト（説明やタイトル） -->
+  <!-- テキスト（見える位置に修正） -->
   <a-entity 
     id="message"
-    text="value: 最初の景色です; color: white; width: 4"
-    position="0 1.6 -2">
+    text="value: 最初の景色です; color: white; width: 3"
+    position="0 0 -1.5">
   </a-entity>
 
-  <!-- ナレーション（最初の音声） -->
+  <!-- ナレーション -->
   <a-entity id="narration" sound="src: url(narration1.mp3); autoplay: true; volume: 1.2"></a-entity>
 
   <!-- カメラ -->
-  <a-entity camera look-controls></a-entity>
+  <a-entity id="cam" camera look-controls position="0 0 0"></a-entity>
 </a-scene>
 
 <script>
-  // 画像を順番に切り替え
   const images = [
     "IMG_20230807_115343_00_merged.jpg",
     "IMG_20230807_122331_00_merged.jpg",
